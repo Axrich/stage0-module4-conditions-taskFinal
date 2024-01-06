@@ -1,34 +1,28 @@
 package school.mjc.stage0.conditions.finalTask;
 
-import java.time.YearMonth;
-
 public class DaysInMonth {
     public void printDays(int year, int month) {
-        if (year < 0) {
-            System.out.println("Invalid date");
-            return;
+        if (year <= 0){
+            System.out.println("invalid date");
         }
-
-        try {
-            YearMonth yearMonth = YearMonth.of(year, month);
-            int daysInMonth = yearMonth.lengthOfMonth();
-
-            if (yearMonth.isLeapYear()) {
-                System.out.println("Leap year!");
-            }
-
-            System.out.println("Number of days in the month: " + daysInMonth);
-        } catch (Exception e) {
-            System.out.println("Invalid date");
+        else if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+            if (month == 1 || month == 3 || month == 5 || month == 10 || month == 12 || (month >= 7 && month <= 8))
+                System.out.println("31");
+            else if (month == 4 || month == 6 || month == 9 || month == 11)
+                System.out.println("30");
+            else if (month == 2)
+                System.out.println("29");
+            else
+                System.out.println("wrong number!");
+        } else {
+            if (month == 1 || month == 3 || month == 5 || month == 10 || month == 12 || (month >= 7 && month <= 8))
+                System.out.println("31");
+            else if (month == 4 || month == 6 || month == 9 || month == 11)
+                System.out.println("30");
+            else if (month == 2)
+                System.out.println("28");
+            else
+                System.out.println("wrong number!");
         }
-    }
-
-    public static void main(String[] args) {
-        DaysInMonth daysInMonth = new DaysInMonth();
-
-        daysInMonth.printDays(2023, 2);
-        daysInMonth.printDays(2024, 2);
-        daysInMonth.printDays(2023, 13);
-        daysInMonth.printDays(-2023, 7);
     }
 }

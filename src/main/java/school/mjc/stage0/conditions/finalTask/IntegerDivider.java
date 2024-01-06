@@ -2,27 +2,13 @@ package school.mjc.stage0.conditions.finalTask;
 
 public class IntegerDivider {
     public void printCompletelyDivided(int dividend, int divider) {
-        try {
-            int result = dividend / divider;
-
-            int product = result * divider;
-
-            if (product == dividend) {
-                System.out.println("Can be divided completely");
-            } else {
-                System.out.println("Cannot be divided completely");
-            }
-        } catch (ArithmeticException e) {
-            System.out.println("Division by zero");
-        }
-    }
-
-    public static void main(String[] args) {
-        IntegerDivider divider = new IntegerDivider();
-
-        divider.printCompletelyDivided(10, 2);
-        divider.printCompletelyDivided(15, 3);
-        divider.printCompletelyDivided(7, 2);
-        divider.printCompletelyDivided(10, 0);
+        int sum = dividend / divider;
+        sum = sum * divider;
+        if (divider == 0 || dividend == 0)
+            System.out.println("division by zero");
+        else if (sum == dividend)
+            System.out.println("can be divided completely");
+        else
+            System.out.println("cannot be divided completely" );
     }
 }
